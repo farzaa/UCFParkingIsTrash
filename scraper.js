@@ -18,7 +18,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 var interval = 5
-new CronJob ('*/2 * * * *', function() {
+new CronJob ('*/5 * * * *', function() {
     var date = new Date()
     console.log("Updatig firebase..., time ", date.getMinutes());
     // lets call this once every five minutes
@@ -85,5 +85,6 @@ function update_firebase(document_to_write) {
     var date = new Date()
     var day = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ';
     var time = date.getHours() + ":" + date.getMinutes()
-    firebase.database().ref(day + time).set(document_to_write);
+    var key = day + time
+    firebase.database().ref(key).set(document_to_write);
 }
