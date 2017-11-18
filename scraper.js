@@ -83,8 +83,8 @@ function clean_string(garage_name_and_capacity) {
 
 function update_firebase(document_to_write) {
     var date = new Date()
-    var day = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ';
-    var time = date.getHours() + ":" + date.getMinutes()
-    var key = day + time
+    // var day = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ';
+    // var time = date.getHours() + ":" + date.getMinutes()
+    var key = data.getTime()
     firebase.database().ref(key).set(document_to_write);
 }
