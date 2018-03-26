@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>UCFParkingIsTrash</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+      body {
+        padding-top: 54px;
+      }
+      @media (min-width: 992px) {
+        body {
+          padding-top: 56px;
+        }
+      }
+
+    </style>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">UCFParkingIsTrash</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="mt-5">Hey there, I'm sorry we had to meet like this. <br> I'll try my best to help you out today. </h1>
+          <p class="lead">What's your destination at UCF today?</p>
+          <div class="dropdown">
+            <ul id='locs'>
+              <li><a href="#">BA2 @UCF Main</a></li>
+              <li><a href="#">Biology Building</a></li>
+              <li><a href="#">Colbourn Hall CHN</a></li>
+              <li><a href="#">College of Sciences Building</a></li>
+              <li><a href="#">Creative School for Children</a></li>
+              <li><a href="#">ENG 2 Engineering Building 2</a></li>
+              <li><a href="#">Knights Helping Knights Pantry</a></li>
+              <li><a href="#">Morgridge International Reading Center</a></li>
+              <li><a href="#">UCF Chemistry Building</a></li>
+              <li><a href="#">UCF Engineering Building I</a></li>
+              <li><a href="#">UCF Engineering Building II ENG2</a></li>
+              <li><a href="#">UCF Global</a></li>
+              <li><a href="#">UCF Graduate Admissions</a></li>
+              <li><a href="#">UCF Technology Commons 1</a></li>
+              <li><a href="#">University Writing Center</a></li>
+              <li><a href="#">University of Central Florida Classroom Building I</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
+
+<script>
+$("#locs li").on("click", function(){
+  // alert($(this).text());
+  var clicked = $(this).text()
+  $.ajax({
+    type: 'GET',
+    data: {loc: clicked},
+    url: '/best',
+    success: function(data) {
+      console.log(data.hello[0]);
+    }
+  })
+});
+
+</script>
